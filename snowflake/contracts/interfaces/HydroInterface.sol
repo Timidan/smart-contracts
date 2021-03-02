@@ -21,5 +21,5 @@ interface HydroInterface {
     function _whiteListDapp(address _dappAddress) external returns(bool);
     function _blackListDapp(address _dappAddress)external returns(bool);
     function setRaindropAddress(address _raindrop) external;
-    
+    function mint(uint256 amount) external returns(bool);
 }
