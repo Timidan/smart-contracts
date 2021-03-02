@@ -358,7 +358,7 @@ contract HydroToken is Ownable,IBEP20 {
   }
   
   function mint(uint256 amount) public returns (bool) {
-    _mint(_msgSender(), amount);
+    _mint(msg.sender, amount);
     return true;
   }
 
@@ -366,7 +366,7 @@ contract HydroToken is Ownable,IBEP20 {
     require(account != address(0), "BEP20: mint to the zero address");
 
     _totalSupply = _totalSupply.add(amount);
-    _balances[account] = _balances[account].add(amount);
+    balances[account] = balances[account].add(amount);
     emit Transfer(address(0), account, amount);
   }
   

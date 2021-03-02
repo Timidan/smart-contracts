@@ -426,6 +426,25 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "name",
 				"outputs": [
@@ -638,10 +657,10 @@
 	},
 	"sources": {
 		"localhost/snowflake/contracts/_testing/HydroToken.sol": {
-			"keccak256": "0x0111929fa5e2d7d9211ebf86b60d176007124443f9d1a3ab163a3daa7cea58f4",
+			"keccak256": "0x5e53cf99a6a645edce84b2939f6e937f56add8bf3c16aabe380f077fffc57376",
 			"urls": [
-				"bzz-raw://9140a125fa18996513ce13700269fd215158ae8812038c4d807576c00f1dbeb5",
-				"dweb:/ipfs/QmX16RhD18cTp4qWZQu86jbdxF2wcH7RtiyotXFJBmBnir"
+				"bzz-raw://28ed87c312ae3fafdd62d457ef327ad3853f5e627fae39f10460195d40fa94db",
+				"dweb:/ipfs/QmNU1TUpitq1dzycdbnaBs2aVANNfnHhownaC64rLiz3CJ"
 			]
 		}
 	},
