@@ -1,54 +1,115 @@
 {
 	"compiler": {
-		"version": "0.5.0+commit.1d4f565a"
+		"version": "0.5.17+commit.d19bba13"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
-				"constant": true,
 				"inputs": [
 					{
-						"name": "uncasedHydroID",
-						"type": "string"
-					}
-				],
-				"name": "getDetails",
-				"outputs": [
-					{
-						"name": "ein",
-						"type": "uint256"
-					},
-					{
-						"name": "_address",
+						"internalType": "address",
+						"name": "snowflakeAddress",
 						"type": "address"
 					},
 					{
-						"name": "casedHydroID",
-						"type": "string"
+						"internalType": "address",
+						"name": "oldClientRaindropAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_hydroStakeUser",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_hydroStakeDelegatedUser",
+						"type": "uint256"
 					}
 				],
 				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
+				"stateMutability": "nonpayable",
+				"type": "constructor"
 			},
 			{
-				"constant": true,
+				"anonymous": false,
 				"inputs": [
 					{
-						"name": "_address",
-						"type": "address"
-					}
-				],
-				"name": "getDetails",
-				"outputs": [
-					{
+						"indexed": true,
+						"internalType": "uint256",
 						"name": "ein",
 						"type": "uint256"
 					},
 					{
-						"name": "casedHydroID",
+						"indexed": false,
+						"internalType": "string",
+						"name": "hydroID",
 						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					}
+				],
+				"name": "HydroIDClaimed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "ein",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "hydroID",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					}
+				],
+				"name": "HydroIDDestroyed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "callOnAddition",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
 					}
 				],
 				"payable": false,
@@ -58,11 +119,178 @@
 			{
 				"constant": true,
 				"inputs": [],
-				"name": "hydroStakeUser",
+				"name": "callOnRemoval",
 				"outputs": [
 					{
+						"internalType": "bool",
 						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "casedHydroID",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "checkForOldHydroID",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "uncasedHydroID",
+						"type": "string"
+					}
+				],
+				"name": "getDetails",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "ein",
 						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "casedHydroID",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "getDetails",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "ein",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "casedHydroID",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "ein",
+						"type": "uint256"
+					}
+				],
+				"name": "getDetails",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "casedHydroID",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "uncasedHydroID",
+						"type": "string"
+					}
+				],
+				"name": "hydroIDActive",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "active",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "uncasedHydroID",
+						"type": "string"
+					}
+				],
+				"name": "hydroIDAvailable",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "available",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "uncasedHydroID",
+						"type": "string"
+					}
+				],
+				"name": "hydroIDDestroyed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "destroyed",
+						"type": "bool"
 					}
 				],
 				"payable": false,
@@ -75,8 +303,111 @@
 				"name": "hydroStakeDelegatedUser",
 				"outputs": [
 					{
+						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "hydroStakeUser",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "isOwner",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "ein",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "extraData",
+						"type": "bytes"
+					}
+				],
+				"name": "onAddition",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "ein",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"name": "onRemoval",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"payable": false,
@@ -93,37 +424,10 @@
 				"type": "function"
 			},
 			{
-				"constant": true,
-				"inputs": [],
-				"name": "callOnAddition",
-				"outputs": [
-					{
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [],
-				"name": "snowflakeDescription",
-				"outputs": [
-					{
-						"name": "",
-						"type": "string"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"constant": false,
 				"inputs": [
 					{
+						"internalType": "address",
 						"name": "oldClientRaindropAddress",
 						"type": "address"
 					}
@@ -135,216 +439,30 @@
 				"type": "function"
 			},
 			{
-				"constant": true,
-				"inputs": [],
-				"name": "snowflakeName",
-				"outputs": [
-					{
-						"name": "",
-						"type": "string"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [],
-				"name": "owner",
-				"outputs": [
-					{
-						"name": "",
-						"type": "address"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [],
-				"name": "callOnRemoval",
-				"outputs": [
-					{
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [],
-				"name": "isOwner",
-				"outputs": [
-					{
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"constant": false,
 				"inputs": [
 					{
-						"name": "ein",
-						"type": "uint256"
-					},
-					{
-						"name": "",
-						"type": "uint256"
-					},
-					{
-						"name": "extraData",
-						"type": "bytes"
-					}
-				],
-				"name": "onAddition",
-				"outputs": [
-					{
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"payable": false,
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"constant": false,
-				"inputs": [
-					{
-						"name": "ein",
-						"type": "uint256"
-					},
-					{
-						"name": "",
-						"type": "bytes"
-					}
-				],
-				"name": "onRemoval",
-				"outputs": [
-					{
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"payable": false,
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [
-					{
-						"name": "casedHydroID",
-						"type": "string"
-					},
-					{
-						"name": "_address",
+						"internalType": "address",
+						"name": "snowflakeAddress",
 						"type": "address"
 					}
 				],
-				"name": "checkForOldHydroID",
-				"outputs": [],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [
-					{
-						"name": "uncasedHydroID",
-						"type": "string"
-					}
-				],
-				"name": "hydroIDActive",
-				"outputs": [
-					{
-						"name": "active",
-						"type": "bool"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [
-					{
-						"name": "uncasedHydroID",
-						"type": "string"
-					}
-				],
-				"name": "hydroIDAvailable",
-				"outputs": [
-					{
-						"name": "available",
-						"type": "bool"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": false,
-				"inputs": [
-					{
-						"name": "_address",
-						"type": "address"
-					},
-					{
-						"name": "casedHydroId",
-						"type": "string"
-					}
-				],
-				"name": "signUp",
+				"name": "setSnowflakeAddress",
 				"outputs": [],
 				"payable": false,
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
-				"constant": true,
-				"inputs": [
-					{
-						"name": "ein",
-						"type": "uint256"
-					}
-				],
-				"name": "getDetails",
-				"outputs": [
-					{
-						"name": "_address",
-						"type": "address"
-					},
-					{
-						"name": "casedHydroID",
-						"type": "string"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"constant": false,
 				"inputs": [
 					{
+						"internalType": "uint256",
 						"name": "_hydroStakeUser",
 						"type": "uint256"
 					},
 					{
+						"internalType": "uint256",
 						"name": "_hydroStakeDelegatedUser",
 						"type": "uint256"
 					}
@@ -359,44 +477,17 @@
 				"constant": false,
 				"inputs": [
 					{
-						"name": "snowflakeAddress",
+						"internalType": "address",
+						"name": "_address",
 						"type": "address"
-					}
-				],
-				"name": "setSnowflakeAddress",
-				"outputs": [],
-				"payable": false,
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [
+					},
 					{
-						"name": "uncasedHydroID",
+						"internalType": "string",
+						"name": "casedHydroId",
 						"type": "string"
 					}
 				],
-				"name": "hydroIDDestroyed",
-				"outputs": [
-					{
-						"name": "destroyed",
-						"type": "bool"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": false,
-				"inputs": [
-					{
-						"name": "newOwner",
-						"type": "address"
-					}
-				],
-				"name": "transferOwnership",
+				"name": "signUp",
 				"outputs": [],
 				"payable": false,
 				"stateMutability": "nonpayable",
@@ -408,6 +499,7 @@
 				"name": "snowflakeAddress",
 				"outputs": [
 					{
+						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
@@ -417,88 +509,49 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
+				"constant": true,
+				"inputs": [],
+				"name": "snowflakeDescription",
+				"outputs": [
 					{
-						"name": "snowflakeAddress",
-						"type": "address"
-					},
-					{
-						"name": "oldClientRaindropAddress",
-						"type": "address"
-					},
-					{
-						"name": "_hydroStakeUser",
-						"type": "uint256"
-					},
-					{
-						"name": "_hydroStakeDelegatedUser",
-						"type": "uint256"
+						"internalType": "string",
+						"name": "",
+						"type": "string"
 					}
 				],
 				"payable": false,
-				"stateMutability": "nonpayable",
-				"type": "constructor"
+				"stateMutability": "view",
+				"type": "function"
 			},
 			{
-				"anonymous": false,
-				"inputs": [
+				"constant": true,
+				"inputs": [],
+				"name": "snowflakeName",
+				"outputs": [
 					{
-						"indexed": true,
-						"name": "ein",
-						"type": "uint256"
-					},
-					{
-						"indexed": false,
-						"name": "hydroID",
+						"internalType": "string",
+						"name": "",
 						"type": "string"
-					},
-					{
-						"indexed": false,
-						"name": "userAddress",
-						"type": "address"
 					}
 				],
-				"name": "HydroIDClaimed",
-				"type": "event"
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
 			},
 			{
-				"anonymous": false,
+				"constant": false,
 				"inputs": [
 					{
-						"indexed": true,
-						"name": "ein",
-						"type": "uint256"
-					},
-					{
-						"indexed": false,
-						"name": "hydroID",
-						"type": "string"
-					},
-					{
-						"indexed": false,
-						"name": "userAddress",
-						"type": "address"
-					}
-				],
-				"name": "HydroIDDestroyed",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"name": "previousOwner",
-						"type": "address"
-					},
-					{
-						"indexed": true,
+						"internalType": "address",
 						"name": "newOwner",
 						"type": "address"
 					}
 				],
-				"name": "OwnershipTransferred",
-				"type": "event"
+				"name": "transferOwnership",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -532,7 +585,7 @@
 		"compilationTarget": {
 			"localhost/client-raindrop/contracts/ClientRaindrop.sol": "ClientRaindrop"
 		},
-		"evmVersion": "byzantium",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"optimizer": {
 			"enabled": true,
@@ -544,7 +597,8 @@
 		"localhost/client-raindrop/contracts/ClientRaindrop.sol": {
 			"keccak256": "0x6df96eeb3ef173198e1e2bd0cf9ecbd0511da37038bf68a29d3db33aa9b755f6",
 			"urls": [
-				"bzzr://49e2d020d0ac1cf51cd50d5e8a7dacc05ea3c4e1489e1ae432fa9dcfbfae8b36"
+				"bzz-raw://991f660c406f59a9baf7f33062770794d299667a1f042bd7c92bddce1994531c",
+				"dweb:/ipfs/QmXcdKq5vaoygSdWwbZpNwPnjRXeeAYULJEjZbkuPRKSzG"
 			]
 		}
 	},

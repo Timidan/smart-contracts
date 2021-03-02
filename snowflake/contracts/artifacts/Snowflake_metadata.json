@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.5.16+commit.9c3226ce"
+		"version": "0.5.17+commit.d19bba13"
 	},
 	"language": "Solidity",
 	"output": {
@@ -39,6 +39,25 @@
 					}
 				],
 				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "einFrom",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "SnowflakeBalanceBurnt",
 				"type": "event"
 			},
 			{
@@ -1363,7 +1382,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"localhost/Snowflake.sol": "Snowflake"
+			"localhost/snowflake/contracts/Snowflake.sol": "Snowflake"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -1374,56 +1393,56 @@
 		"remappings": []
 	},
 	"sources": {
-		"localhost/Snowflake.sol": {
-			"keccak256": "0xd787854e4e3720f292332d7a0580bf5c116113241ea43fc84cdc86a60422d436",
+		"localhost/snowflake/contracts/Snowflake.sol": {
+			"keccak256": "0xb5330e386bdab74d8fdf3c3a6a5e0d7f46536e647ee4409d8cc62e34e853a4b1",
 			"urls": [
-				"bzz-raw://ab3969d9287e523827ed68fcc6319695eb83890d721fce0648090b4617de53e2",
-				"dweb:/ipfs/QmZGysthdvHtqmeRfaCsKBjUqJicZgdL5Sf6gHLb2pirbD"
+				"bzz-raw://4f6cdc9b8030a0a293868e4e96132b83c218af5a2197a509c77f3d20f0cbc742",
+				"dweb:/ipfs/QmYpbWXVkd4j1LE9SJYBaGF3a3kHvXtEEzvxCb2LMQZQxG"
 			]
 		},
-		"localhost/interfaces/ClientRaindropInterface.sol": {
+		"localhost/snowflake/contracts/interfaces/ClientRaindropInterface.sol": {
 			"keccak256": "0x930f9d9bc7a774fd48e784332db8866e59ddeed9cc6218b3f49d0fd9ad62acda",
 			"urls": [
 				"bzz-raw://7380e1bb33daa3cc5014cb96c66fb036b0ec54dc40bde31e5233d7e8999dacf9",
 				"dweb:/ipfs/QmQQaevHVd6jgwSxoupAEER9bYLPvKX6fMbJWxXdwwk28K"
 			]
 		},
-		"localhost/interfaces/HydroInterface.sol": {
-			"keccak256": "0x3f0b755561062d9912aca9a46d728918404fe17a09cfbadfcdd498bdd6fd0b6e",
+		"localhost/snowflake/contracts/interfaces/HydroInterface.sol": {
+			"keccak256": "0xf7279bffebd5eb0d1bdc3500e8a12029ddc3249879061e677dc533eac3c8a8fc",
 			"urls": [
-				"bzz-raw://2c7728a242939831b961ce3846dcf948053a6d97e84d62d7de15fa04e050f4ed",
-				"dweb:/ipfs/QmTb87xRzJoTjn6Zqxwn4pobLaRwoKd5PTVXeJ79L59MSW"
+				"bzz-raw://4e0afb90c0e3c62d5ed48e63a010b868ffc142eaf01e772da657803daed61bf3",
+				"dweb:/ipfs/QmNpxvCMds25r1wEASuSDanMEKXKWiwJd3Fzoxi3rG2FJ2"
 			]
 		},
-		"localhost/interfaces/IdentityRegistryInterface.sol": {
+		"localhost/snowflake/contracts/interfaces/IdentityRegistryInterface.sol": {
 			"keccak256": "0xb559191dbd30da97a8b5759a895d7f4eff420eedc55b0786ae7206fbe384dc15",
 			"urls": [
 				"bzz-raw://4ca73a9731d9a2dd9603593b2d847af126e20af8d4242edb91d5bfba5107149d",
 				"dweb:/ipfs/QmdJ5oW52QuXipANPCy8sJPwULkdXmVWjAPEWgPoy9oudk"
 			]
 		},
-		"localhost/interfaces/SnowflakeResolverInterface.sol": {
+		"localhost/snowflake/contracts/interfaces/SnowflakeResolverInterface.sol": {
 			"keccak256": "0x8a5595a41d86f78514dfcd6eaa0ec79482187b8ead1c8c129faab29aeb2aced1",
 			"urls": [
 				"bzz-raw://adce9474a5bdaf71df2dd13b274be5e133aea40a45ac477cff3affa7b36c04f2",
 				"dweb:/ipfs/QmPPUi5d3uqA8dgLkJY6NUJZXNkV2gHCCbgtUXdb1Q42D4"
 			]
 		},
-		"localhost/interfaces/SnowflakeViaInterface.sol": {
+		"localhost/snowflake/contracts/interfaces/SnowflakeViaInterface.sol": {
 			"keccak256": "0x145fa0d482b9f25c70b8426d7cedb07dd056d3b3ff47c6c9def3cef13167ea1f",
 			"urls": [
 				"bzz-raw://fca010c7377b5acfcf7b2115dbc6cc172955e8cec427a0ab5f162b88992dcfbd",
 				"dweb:/ipfs/QmV5LoK4zj3xTSpw6UbSB8MXaXMExCkJeC557JyjiGwYBn"
 			]
 		},
-		"localhost/zeppelin/math/SafeMath.sol": {
+		"localhost/snowflake/contracts/zeppelin/math/SafeMath.sol": {
 			"keccak256": "0x2cee2f0a5f7c68ece40aa1641b34177859058b4b3d74f243112c96f0bff7d54b",
 			"urls": [
 				"bzz-raw://f2b0cad26ec863f3772bbebd99460df0d96c57eaf486e195ea402a2542d6d515",
 				"dweb:/ipfs/QmXQTSLmasfkBa5ttJeWMAGedKTV1ZErhMLkkBCJDhWHbz"
 			]
 		},
-		"localhost/zeppelin/ownership/Ownable.sol": {
+		"localhost/snowflake/contracts/zeppelin/ownership/Ownable.sol": {
 			"keccak256": "0x1fbe7f67d6b8ac1f5aff86a9da41833273e073c47ce1e160f9addd9c64d9ff1d",
 			"urls": [
 				"bzz-raw://93d3790757d1984cef393a056010cc4269002c1aa93d635fabc8f169ef0707e8",

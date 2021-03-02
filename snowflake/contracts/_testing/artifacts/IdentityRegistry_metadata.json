@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.5.16+commit.9c3226ce"
+		"version": "0.5.17+commit.d19bba13"
 	},
 	"language": "Solidity",
 	"output": {
@@ -1361,7 +1361,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"localhost/_testing/IdentityRegistry.sol": "IdentityRegistry"
+			"localhost/snowflake/contracts/_testing/IdentityRegistry.sol": "IdentityRegistry"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -1372,21 +1372,21 @@
 		"remappings": []
 	},
 	"sources": {
-		"localhost/_testing/AddressSet/AddressSet.sol": {
+		"localhost/snowflake/contracts/_testing/AddressSet/AddressSet.sol": {
 			"keccak256": "0x3e00884e2275385e7f2fdee6d079edf4fa35f1fecf2f44083df5f49a736f94bc",
 			"urls": [
 				"bzz-raw://beae7034f1b886a759a2504a50ed42215679aee92873b7b15ae35e2ceed106f3",
 				"dweb:/ipfs/QmfU9LpDC83PWPpCpi8noLM8yYnRUtQHXJ2nWAgyEtppo1"
 			]
 		},
-		"localhost/_testing/IdentityRegistry.sol": {
+		"localhost/snowflake/contracts/_testing/IdentityRegistry.sol": {
 			"keccak256": "0x78727cfeae26ebb8dddaeb56d28f6ce7f16976729131aaeebd902a8d91b64c02",
 			"urls": [
 				"bzz-raw://c11dbe5532ecd3bfcea5e5356c96ccd55f195db6bd2b4db1976b31ec1d872ef3",
 				"dweb:/ipfs/QmRJyoc7PwJw7kLLLZKE5oQiXnmpV3aFYHai2zNRHXxDYt"
 			]
 		},
-		"localhost/_testing/SignatureVerifier.sol": {
+		"localhost/snowflake/contracts/_testing/SignatureVerifier.sol": {
 			"keccak256": "0x3069ac0c8b35f57d8906f639d40f65bf3f2c67e339f149bd78afc804598ef1d1",
 			"urls": [
 				"bzz-raw://c8301695b46de6a25b2f980eee0713e97efbb28ea519957684cedbcc44063de9",

@@ -53,6 +53,7 @@
 			"constant": true,
 			"inputs": [
 				{
+					"internalType": "string",
 					"name": "userName",
 					"type": "string"
 				}
@@ -60,10 +61,12 @@
 			"name": "getUserByName",
 			"outputs": [
 				{
+					"internalType": "string",
 					"name": "",
 					"type": "string"
 				},
 				{
+					"internalType": "address",
 					"name": "",
 					"type": "address"
 				}
@@ -76,6 +79,7 @@
 			"constant": true,
 			"inputs": [
 				{
+					"internalType": "string",
 					"name": "userName",
 					"type": "string"
 				}
@@ -83,6 +87,7 @@
 			"name": "userNameTaken",
 			"outputs": [
 				{
+					"internalType": "bool",
 					"name": "",
 					"type": "bool"
 				}
