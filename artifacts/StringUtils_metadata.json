@@ -14,7 +14,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"client-raindrop/contracts/ClientRaindrop.sol": "StringUtils"
+			"ClientRaindrop_flat.sol": "StringUtils"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -25,11 +25,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"client-raindrop/contracts/ClientRaindrop.sol": {
-			"keccak256": "0x6df96eeb3ef173198e1e2bd0cf9ecbd0511da37038bf68a29d3db33aa9b755f6",
+		"ClientRaindrop_flat.sol": {
+			"keccak256": "0x77ec7664857ea8c80043f6a00777aa240589773f5e4b2d8d1e5fef0ff51d1a63",
 			"urls": [
-				"bzz-raw://991f660c406f59a9baf7f33062770794d299667a1f042bd7c92bddce1994531c",
-				"dweb:/ipfs/QmXcdKq5vaoygSdWwbZpNwPnjRXeeAYULJEjZbkuPRKSzG"
+				"bzz-raw://c06b10524c7b282cbd24b7ed7fff61aa29815fd797ca9ca2b461bd108662af89",
+				"dweb:/ipfs/QmPUZ8NsFeEn87MYG6WkitAusajZxf2cVh5zDk4mouh2dD"
 			]
 		}
 	},

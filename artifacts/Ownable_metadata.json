@@ -33,21 +33,6 @@
 			{
 				"constant": true,
 				"inputs": [],
-				"name": "isOwner",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [],
 				"name": "owner",
 				"outputs": [
 					{
@@ -58,15 +43,6 @@
 				],
 				"payable": false,
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": false,
-				"inputs": [],
-				"name": "renounceOwnership",
-				"outputs": [],
-				"payable": false,
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -91,15 +67,6 @@
 				"constructor": {
 					"details": "The Ownable constructor sets the original `owner` of the contract to the sender account."
 				},
-				"isOwner()": {
-					"return": "true if `msg.sender` is the owner of the contract."
-				},
-				"owner()": {
-					"return": "the address of the owner."
-				},
-				"renounceOwnership()": {
-					"details": "Allows the current owner to relinquish control of the contract."
-				},
 				"transferOwnership(address)": {
 					"details": "Allows the current owner to transfer control of the contract to a newOwner.",
 					"params": {
@@ -110,16 +77,12 @@
 			"title": "Ownable"
 		},
 		"userdoc": {
-			"methods": {
-				"renounceOwnership()": {
-					"notice": "Renouncing to ownership will leave the contract without an owner. It will not be possible to call the functions with the `onlyOwner` modifier anymore."
-				}
-			}
+			"methods": {}
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			"client-raindrop/contracts/ClientRaindrop.sol": "Ownable"
+			"Raindrop_flat.sol": "Ownable"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -130,11 +93,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"client-raindrop/contracts/ClientRaindrop.sol": {
-			"keccak256": "0x6df96eeb3ef173198e1e2bd0cf9ecbd0511da37038bf68a29d3db33aa9b755f6",
+		"Raindrop_flat.sol": {
+			"keccak256": "0xf543b45f1c558d094c9a162912f1e1ac201d6b445eb35a82b19868746e8d48b1",
 			"urls": [
-				"bzz-raw://991f660c406f59a9baf7f33062770794d299667a1f042bd7c92bddce1994531c",
-				"dweb:/ipfs/QmXcdKq5vaoygSdWwbZpNwPnjRXeeAYULJEjZbkuPRKSzG"
+				"bzz-raw://04228ae1ac1a6b4df21d3ebdc48a48deb8f408fae578324f203d836ea29988d4",
+				"dweb:/ipfs/QmXRF7Vbv3dTz9Fq2GC8c6UMhVNQfgUV6eQLpyfd937zZk"
 			]
 		}
 	},
