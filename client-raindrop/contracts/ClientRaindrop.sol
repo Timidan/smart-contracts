@@ -114,7 +114,7 @@ contract Ownable {
 
     event OwnershipTransferred(
         address indexed previousOwner,
-        address indexed newOwner
+        address indexed newOwnerhttps://github.com/HydroBlockchain/smart-contracts.git
     );
 
     /**
